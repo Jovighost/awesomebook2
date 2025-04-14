@@ -1,38 +1,65 @@
-
-var books = [
-{
-    tittle: "book of life",
-    author: "jaden smith"
-},
-{
-    title: "1884",
-    author: "George owell"
-},
-{
-    title: "my woman is a tiger",
-    author: "giovanni"
+class Book {
+  constructor(title, author) {
+    this.title = title;
+    this.author = author;
+  }
 }
-]
+class BookCollection {
+  constructor() {
+    this.books = JSON.parse(localStorage.getItem('books')) || [];
+  }
 
-const add = (title,author) =>{
-  
-   const book ={
-    title: title,
-    author: author
-   };
-   books.push(book)
- 
+  addBook(book) {
+    this.books.push(book);
+    localStorage.setItem('books', JSON.stringify(this.books));
+    this.displayBooks();
+  }
+
+  removeBook(index) {
+    this.books = this.books.filter((_, bookIndex) => bookIndex !== index);
+    localStorage.setItem('books', JSON.stringify(this.books));
+    this.displayBooks();
+  }
+
+  displayBooks() {
+    const bookId = document.getElementById('book-title');
+    if (this.books.lenghth === 0) {
+      bookId.innerHTML = '<p>No bookks available.</p>';
+      return;
+    }
+
+    const mapBook = this.books.map((book, index) => `
+            <ul key="${index}" class = "book">
+                    <li>${book.title} by ${book.author}</li>
+                    
+                    <li><button class="btn-remove" onclick="bookCollection.removeBook(${index})">Remove</button></li>
+                </ul>`).join('');
+    bookId.innerHTML = mapBook;
+  }
 }
+// Create an instance of BookCollection
+const bookCollection = new BookCollection();
 
-//remove a book
-const removeBook =(bookIndex) => {
-    books = books.filter(index => index !== bookIndex);
-    console.log(books)
-}
- 
+const titleId = document.getElementById('title');
+const authorId = document.getElementById('Author');
+const buttonId = document.getElementById('btn');
 
+// function to add a book
+const add = () => {
+  const titleValue = titleId.value.trim();
+  const authorValue = authorId.value.trim();
 
-removeBook(books[0])
+  if (titleValue === '' || authorValue === '') {
+    const messageElement = document.getElementById('message');
+    messageElement.textContent = ('Please enter both title and author.');
+    return;
+  }
+  const book = new Book(titleValue, authorValue);
+  bookCollection.addBook(book);
 
+  titleId.value = '';
+  authorId.value = '';
+};
+buttonId.addEventListener('click', add);
 
-
+bookCollection.displayBooks();

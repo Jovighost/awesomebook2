@@ -7,17 +7,23 @@
 .book-container{
     display: flex;
     flex-direction: column;
+    align-items: center;
     padding: 20px;
-    width: 100%;
+    width: 50%;
+    height: auto;
+    background-color: rgb(51, 205, 205);
+    margin: 10% auto;
 }
 
 .book-list{
     width: 60%;
+    overflow-y: auto;
+    max-height: 200px;
+    
 }
 .book-list ul{
     list-style: none;
-    border-bottom:2px solid;
-    padding-block: 20px
+    
 }
 
 .book-list ul li{
@@ -26,7 +32,9 @@
 
 .book-input{
     display: flex;
+    position: relative;
     flex-direction: column;
+    align-items: center;
     gap: 10px;
     margin-top: 30px;
     width: 40%;
@@ -39,8 +47,20 @@
 }
  
 .book-input button{
-    width: 15%;
+    width: 30%;
     padding-block: 10px;
+    
+   align-self: flex-end;
+    
 }
 
+.book{
+   display: flex;
+   justify-content: space-between; 
+   border: 2px solid ;
+}
 
+.btn-remove{
+    background-color: red;
+    border-radius: 5px;
+}
