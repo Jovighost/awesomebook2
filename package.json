@@ -2,7 +2,7 @@
   "name": "awesomebook2",
   "version": "1.0.0",
   "description": "implement object  in javascript",
-  "main": "index.js",
+  "main": "practice.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -7,17 +7,28 @@
 .book-container{
     display: flex;
     flex-direction: column;
+    align-items: center;
     padding: 20px;
-    width: 100%;
+    width: 50%;
+    height: auto;
+    background-color: rgb(51, 205, 205);
+    margin: 10% auto;
 }
 
 .book-list{
     width: 60%;
+    overflow-y: auto;
+    max-height: 200px;
+    margin: auto;
+    
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
 }
 .book-list ul{
     list-style: none;
-    border-bottom:2px solid;
-    padding-block: 20px
+    
 }
 
 .book-list ul li{
@@ -26,7 +37,9 @@
 
 .book-input{
     display: flex;
+    position: relative;
     flex-direction: column;
+    align-items: center;
     gap: 10px;
     margin-top: 30px;
     width: 40%;
@@ -39,8 +52,133 @@
 }
  
 .book-input button{
-    width: 15%;
+    width: 30%;
     padding-block: 10px;
+    
+   align-self: flex-end;
+    
 }
 
+.book{
+   display: flex;
+   justify-content: space-between; 
+   border: 2px solid ;
+}
+
+.btn-remove{
+    background-color: red;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+/* styling for single page aplication(SPA) */
+
+.nav-list  {
+    background-color: #fff;
+    height: 60px;
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 5px solid black;
+    
+    
+}
+
+.nav-list ul {
+    display: flex; 
+    list-style-type: none; 
+    margin-right: 100px;
+   
+}
+
+.nav-list li{
+    margin: 0 15px;
+    
+    
+}
+
+.nav-list a {
+    color: black; 
+    text-decoration: none;
+    line-height: 60px;
+    
+}
+
+.logo{
+    color: black;
+    margin-left: 60px;
+}
+
+.list-menu{
+    border-right: 3px solid;
+    padding-right: 30px;
+    padding: 15px;
+}
+
+.addnew-menu{
+    border-right: 3px solid;
+    padding-right: 10px;
+    padding: 15px;
+}
+.date-time {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 20px;
+    font-size: 16px;
+    color: black;
+}
+.list-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.addnew-section{
+    display: flex;
+    flex-direction: column;
+    margin-left: 500px;
+    padding: 80px;
+    
+}
+
+.contact-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    
+}
+
+.contact-section h3{
+    font-size: 40px;
+    margin: 50px;
+}
+
+
+.contact-section p{
+    font-size: 20px;
+    padding: 50px; 
+}
+
+.contact-section{
+    text-transform: capitalize;
+    display: block;   
+}
+.contact-section ul {
+    list-style-type: disc;
+    list-style-position: inside;
+    
+}
+
+footer{
+    text-align: center;
+    padding: 1rem;
+    background-color: #f0f0f0;
+    margin-top: 2rem;
+    border-top: solid #ccc;
+}
 
